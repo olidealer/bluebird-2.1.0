@@ -1,7 +1,7 @@
 FROM node:18-alpine
 WORKDIR /app
-COPY package.json tsconfig.json ./
-RUN npm install && npm cache clean --force
+COPY package.json package-lock.json tsconfig.json ./
+RUN npm ci && npm cache clean --force
 COPY prisma prisma
 RUN npx prisma generate
 COPY src src
