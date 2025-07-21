@@ -20,14 +20,26 @@ The `docker-compose.yml` file starts the database, backend and frontend services
 ## Setup
 
 1. Ensure Docker and Docker Compose are installed.
-2. Copy `.env.example` to `.env` and adjust the variables if necessary.
+2. Copy `backend/.env.example` to `backend/.env` and adjust the variables if necessary.
 3. Run `docker-compose up --build` to start the stack.
+
+ codex/update-readme.md-with-backend-variables
 
 The compose file mounts only the `src` folders from `backend` and `frontend` so
 that `node_modules` installed during the Docker build remain intact.  If you
 change dependencies or other configuration files, rebuild the containers.
+ main
 
 The frontend will be available on `http://localhost:5173` and the backend API on `http://localhost:3000` by default.
+
+## Backend Environment Variables
+
+The backend requires a few environment variables set in `backend/.env`:
+
+- `DATABASE_URL` – connection string for the PostgreSQL database.
+- `JWT_SECRET` – secret key used to sign JSON Web Tokens.
+
+Copy `backend/.env.example` to `backend/.env` and update these values before running Docker Compose.
 
 ## Features
 
