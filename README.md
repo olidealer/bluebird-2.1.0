@@ -23,6 +23,10 @@ The `docker-compose.yml` file starts the database, backend and frontend services
 2. Copy `.env.example` to `.env` and adjust the variables if necessary.
 3. Run `docker-compose up --build` to start the stack.
 
+The compose file mounts only the `src` folders from `backend` and `frontend` so
+that `node_modules` installed during the Docker build remain intact.  If you
+change dependencies or other configuration files, rebuild the containers.
+
 The frontend will be available on `http://localhost:5173` and the backend API on `http://localhost:3000` by default.
 
 ## Features
